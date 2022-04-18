@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/innotechdevops/gomvc/database"
 	"github.com/innotechdevops/gomvc/promotion"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -47,13 +46,11 @@ func main() {
 	gormCrud()
 
 	// Solution 2.
-	db := database.Connection("database/test.db")
-	promotionRepo := promotion.NewRepository(db)
-	promotionHandler := promotion.NewHandler(promotionRepo)
-	promotionRouter := promotion.NewRouter(promotionHandler)
-
-	// Initial routers
-	promotionRouter.Initialize(app)
+	//db := database.Connection("database/test.db")
+	//promotionRepo := promotion.NewRepository(db)
+	//promotionHandler := promotion.NewHandler(promotionRepo)
+	//promotionRouter := promotion.NewRouter(promotionHandler)
+	//promotionRouter.Initialize(app)
 
 	log.Fatal(app.Listen(":5001"))
 }
